@@ -2,63 +2,33 @@ const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema(
   {
-    user: {
+    name: { type: String, required: true },
+    symbol: { type: String, required: true },
+    price: { type: Number, required: true },
+    change: { type: Number, default: 0 },
+    percentageChange: { type: Number, default: 0 },
+    prevClose: { type: Number, required: true },
+    quantity: { type: Number, required: true },
+    type: { type: String, enum: ["buy", "sell"], required: true },
+    target: { type: Number },
+    stoploss: { type: Number },
+    timeframe: { type: String, required: true },
+    status: {
+      type: String,
+      enum: [
+        "active",
+        "exited",
+        "target achieved",
+        "stoploss hit",
+        "validity over",
+      ],
+      default: "active",
+    },
+    userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
-    products: [
-      {
-        product: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Product",
-          required: true,
-        },
-        quantity: {
-          type: Number,
-          required: true,
-          min: 1,
-        },
-        price: {
-          type: Number,
-          required: true,
-        },
-      },
-    ],
-    status: {
-      type: String,
-      enum: ["pending", "confirmed", "shipped", "delivered", "cancelled"],
-      default: "pending",
-    },
-    totalPrice: {
-      type: Number,
-      required: true,
-      min: 0,
-    },
-    deliveryAt: {
-      type: Date,
-      required: true,
-    },
-    deliveryTimeSlot: {
-      type: String,
-      required: true,
-      match:
-        /^([01]?[0-9]):[0-5][0-9] (AM|PM) - ([01]?[0-9]):[0-5][0-9] (AM|PM)$/,
-    },
-    shippingAddress: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Address",
-      required: true,
-    },
-    // paymentMethod: {
-    //   type: String,
-    //   enum: ["Credit Card", "PayPal", "Cash on Delivery"],
-    //   required: true,
-    // },
-    // paymentStatus: {
-    //   type: Boolean,
-    //   default: false,
-    // },
   },
   { timestamps: true }
 );
