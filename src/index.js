@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyparser = require("body-parser");
-
+const cors = require("cors");
 const app = express();
 const { PORT } = require("./config/serverConfig");
 const connectDB = require("./config/database");
