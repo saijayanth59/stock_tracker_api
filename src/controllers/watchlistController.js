@@ -19,10 +19,10 @@ const getWatchlistsByUserId = async (req, res) => {
   }
 };
 
-const deleteWatchlistById = async (req, res) => {
+const deleteWatchlistBySymbol = async (req, res) => {
   try {
-    const { watchlistId } = req.params;
-    await watchlistService.deleteWatchlistById(watchlistId);
+    const { symbol } = req.params;
+    await watchlistService.deleteWatchlistBySymbol(symbol);
     res.status(200).json({ message: "Watchlist deleted successfully." });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -43,6 +43,6 @@ async function createWatchlist(req, res) {
 module.exports = {
   getAllWatchlists,
   getWatchlistsByUserId,
-  deleteWatchlistById,
   createWatchlist,
+  deleteWatchlistBySymbol,
 };

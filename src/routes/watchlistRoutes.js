@@ -10,9 +10,9 @@ router.post("/", authenticate, watchlistController.createWatchlist);
 router.get("/user", authenticate, watchlistController.getWatchlistsByUserId);
 
 router.delete(
-  "/:watchlistId",
+  "/:symbol",
   authenticate,
-  watchlistController.deleteWatchlistById
+  watchlistController.deleteWatchlistBySymbol
 );
 
 module.exports = router;

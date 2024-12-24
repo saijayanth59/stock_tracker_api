@@ -29,6 +29,6 @@ const login = async ({ username, password }) => {
 const getUserById = async (id) => userRepository.findById(id);
 
 const generateToken = (userId) =>
-  jwt.sign({ id: userId }, JWT_SECRET_KEY, { expiresIn: "1h" });
+  jwt.sign({ id: userId }, JWT_SECRET_KEY, { expiresIn: "24h" });
 
 module.exports = { register, login, getUserById };

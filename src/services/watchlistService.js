@@ -16,9 +16,9 @@ const getWatchlistsByUserId = async (userId) => {
   }
 };
 
-const deleteWatchlistById = async (watchlistId) => {
+const deleteWatchlistBySymbol = async (symbol) => {
   try {
-    return await watchlistRepository.deleteWatchlistById(watchlistId);
+    return await watchlistRepository.deleteWatchlistBySymbol(symbol);
   } catch (error) {
     throw new Error("Error deleting watchlist: " + error.message);
   }
@@ -31,6 +31,6 @@ async function createWatchlist(watchlistData) {
 module.exports = {
   getAllWatchlists,
   getWatchlistsByUserId,
-  deleteWatchlistById,
   createWatchlist,
+  deleteWatchlistBySymbol,
 };
