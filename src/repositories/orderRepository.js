@@ -11,7 +11,7 @@ class OrderRepository {
   }
 
   async getOrderById(orderId) {
-    return await order.findById(orderId);
+    return await order.findById(orderId).sort({ createdAt: -1 });
   }
 
   async updateOrder(orderId, updateData) {

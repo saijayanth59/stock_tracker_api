@@ -5,7 +5,7 @@ const getAllWatchlists = () => {
 };
 
 const getWatchlistsByUserId = (userId) => {
-  return watchlist.find({ user: userId });
+  return watchlist.find({ user: userId }).sort({ createdAt: -1 });
 };
 
 const deleteWatchlistBySymbol = async (symbol) => {
