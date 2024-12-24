@@ -9,6 +9,7 @@ const orderSchema = new mongoose.Schema(
     percentageChange: { type: Number, default: 0 },
     prevClose: { type: Number, required: true },
     quantity: { type: Number, required: true },
+    exitPrice: { type: Number },
     type: { type: String, enum: ["buy", "sell"], required: true },
     target: { type: Number },
     stoploss: { type: Number },
