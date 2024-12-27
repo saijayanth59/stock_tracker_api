@@ -61,7 +61,7 @@ app.get("/", (req, res) => {
       <div class="container">
         <h1>Welcome to the Stock Tracker API</h1>
         <p>Explore the API for tracking your stock portfolio and manage your investments efficiently.</p>
-        <p>Check out our frontend application: <a href="https://stockmarket-portfolio-tracker-7zmr.vercel.app/" target="_blank">Stock Tracker Frontend</a></p>
+        <p>Check out our repo here: <a href="https://github.com/saijayanth59/stock_tracker_api" target="_blank">GitHub Repositary Link</a></p>
       </div>
     </body>
     </html>
