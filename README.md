@@ -71,7 +71,7 @@ All endpoints are prefixed with `/api`. Below are the available routes and their
 
 ### Base URL
 
-`http://<your-deployed-url>/api`
+`http://https://stock-tracker-api.onrender.com/api`
 
 ### User Routes
 
